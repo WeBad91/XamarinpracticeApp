@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5DCDAF17-CC4E-4D56-ABBC-E0A488816A9C}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WeBad.Apps.Droid</RootNamespace>
+    <AssemblyName>WeBad.Apps.Android</AssemblyName>
+    <Deterministic>True</Deterministic>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
+    <TargetFrameworkVersion>v10.0</TargetFrameworkVersion>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <AndroidPackageFormat>apk</AndroidPackageFormat>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie">
+      <Version>4.0.8</Version>
+    </PackageReference>
+    <PackageReference Include="Realm">
+      <Version>10.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Views">
+      <Version>2.80.2</Version>
+    </PackageReference>
+    <PackageReference Include="SkiaSharp.Views.Forms">
+      <Version>2.80.2</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.CommunityToolkit">
+      <Version>1.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
+    <PackageReference Include="Xamarin.Forms.PancakeView">
+      <Version>2.3.0.759</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\list-loader.json" />
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Assets\AboutAssets.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\Tabbar.xml" />
+    <AndroidResource Include="Resources\layout\Toolbar.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon.xml" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\icon_round.xml" />
+    <AndroidResource Include="Resources\mipmap-hdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-mdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\WeBad.Apps\WeBad.Apps.csproj">
+      <Project>{E5C6D8F8-8C40-4575-9195-4EF43EAA3048}</Project>
+      <Name>WeBad.Apps</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FodyWeavers.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\broken_clouds.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\clear_sky.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\few_clouds.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\mist.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\rain.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\scattered_clouds.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\shower_rain.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\snow.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\thunderstorm.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\broken_clouds.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\clear_sky.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\few_clouds.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\mist.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\rain.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\scattered_clouds.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\shower_rain.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\snow.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\thunderstorm.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\broken_clouds.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\clear_sky.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\few_clouds.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\mist.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\rain.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\scattered_clouds.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\shower_rain.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\snow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\thunderstorm.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\broken_clouds.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\clear_sky.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\few_clouds.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\mist.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\rain.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\scattered_clouds.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\shower_rain.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\snow.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\thunderstorm.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\broken_clouds.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\clear_sky.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\few_clouds.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\mist.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\rain.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\scattered_clouds.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\shower_rain.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\snow.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\thunderstorm.png" />
+    <AndroidResource Include="Resources\drawable\curve.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\left_arrow.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\left_arrow.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\left_arrow.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\left_arrow.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\left_arrow.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>

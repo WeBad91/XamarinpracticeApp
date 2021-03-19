@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forecast="clr-namespace:WeBad.Apps.Views.WeatherForecast"
+             x:Class="WeBad.Apps.Views.WeatherForecast.WeatherForecastPage"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+              xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" 
+             xmlns:custom="clr-namespace:WeBad.Apps.CustomComponents"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#FFF">
+    <ContentPage.Content>
+
+        <StackLayout
+            x:Name="MainContainer"
+            VerticalOptions="FillAndExpand"
+            HorizontalOptions="FillAndExpand"
+            Spacing="0"
+            Orientation="Vertical">
+
+            
+            <yummy:PancakeView                       
+                BackgroundGradientStartPoint="0,0"
+                BackgroundGradientEndPoint="1,0">
+                <yummy:PancakeView.BackgroundGradientStops>
+                    <yummy:GradientStopCollection>
+                        <yummy:GradientStop Color="{Binding BackgroundColorStart}" Offset="0.0"/>
+                        <yummy:GradientStop Color="{Binding BackgroundColorEnd}" Offset="1.0"/>
+                    </yummy:GradientStopCollection>
+                </yummy:PancakeView.BackgroundGradientStops>
+
+                <Grid
+                    RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="64"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition Height="200"/>
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+                    
+                    <StackLayout
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Padding="15"
+                        Orientation="Vertical">
+                        <Label
+                            HorizontalOptions="CenterAndExpand"
+                            FontSize="25"
+                            TextColor="#EEEEEE"
+                            Text="{Binding CityName}"/>
+                        <Label
+                            HorizontalOptions="CenterAndExpand"
+                            HorizontalTextAlignment="Center"
+                            TextColor="#FFF"
+                            FontSize="15">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="{Binding CurrentDate, StringFormat='{0:dd MMM yyyy}'}"/>
+                                    <Span Text="&#xA;"/>
+                                    <Span Text="{Binding CurrentDate, StringFormat='{0:HH:mm}'}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </StackLayout>
+                    <custom:ClickableLayout
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        ClickCommand="{Binding GoBackCommand}">
+                        <Image 
+                            Margin="0,30,0,0"
+                            VerticalOptions="Start"
+                            WidthRequest="32"
+                            HeightRequest="20"
+                            Aspect="AspectFit"
+                            Source="left_arrow"/>
+                    </custom:ClickableLayout>
+                    <StackLayout 
+                        Grid.Row="1" 
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        xct:StateLayout.CurrentState="{Binding CurrentState}">
+                        <xct:StateLayout.StateViews>
+                            <xct:StateView StateKey="Loading">
+                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                    <ActivityIndicator IsRunning="True" Color="#FFF" HorizontalOptions="Center" />
+                                </StackLayout>
+                            </xct:StateView>
+                            <xct:StateView StateKey="Error">
+                                <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+                                    <Label 
+                                        Text="Niste povezani na internet."
+                                        FontSize="20"
+                                        TextColor="#FFF"/>
+                                    <Button 
+                                        Text="Pokusajte ponovo"
+                                        Command="{Binding RefreshCommand}"
+                                        TextColor="#FFF"
+                                        BorderColor="#FFF"
+                                        BorderWidth="1"
+                                        BackgroundColor="Transparent"/>
+                                </StackLayout>
+                            </xct:StateView>
+                            <xct:StateView StateKey="Success">
+                                <StackLayout>
+                                    <Image
+                                        HorizontalOptions="CenterAndExpand"
+                                        Aspect="Fill"
+                                        WidthRequest="100"
+                                        HeightRequest="100"
+                                        Source="{Binding WeatherIcon}"/>
+                                    <StackLayout
+                                        Orientation="Horizontal"
+                                        Padding="20,0,20,0">
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="#FFF"
+                                            FontSize="20">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Max &#xA;" FontSize="15" TextColor="#EEEEEE"/>
+                                                    <Span Text="{Binding MaxTemperature}"/>
+                                                    <Span Text="&#176;"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label
+                                            HorizontalOptions="CenterAndExpand"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center"
+                                            TextColor="#FFF"
+                                            FontSize="60">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding CurrentTemperature}"/>
+                                                    <Span Text="&#176;"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <Label
+                                            HorizontalOptions="End"
+                                            TextColor="#FFF"
+                                            HorizontalTextAlignment="Center"
+                                            VerticalTextAlignment="Center"
+                                            FontSize="20">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Min &#xA;" FontSize="15"  TextColor="#EEEEEE"/>
+                                                    <Span Text="{Binding MinTemperature}"/>
+                                                    <Span Text="&#176;"/>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </xct:StateView>
+                        </xct:StateLayout.StateViews>
+
+                    </StackLayout>
+                    <Image 
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Aspect="AspectFill"
+                        
+                        Source="curve"/>
+                </Grid>
+            </yummy:PancakeView>
+            
+            <StackLayout 
+                x:Name="DaysTemperatureContainer"
+                xct:StateLayout.CurrentState="{Binding CurrentState}"
+                BackgroundColor="#FFF"
+                VerticalOptions="FillAndExpand"
+                Margin="0,-10,0,0">
+                
+                <xct:StateLayout.StateViews>
+                    <xct:StateView StateKey="Loading" RepeatCount="3">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <forms:AnimationView                                    
+                                    Animation="resource://Assets.list-loader.json?assembly=WeBad.Apps"
+                                    AnimationSource="EmbeddedResource"                                    
+                                    AutoPlay="True"
+                                    RepeatMode="Infinite"
+                                    HeightRequest="80"/>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+
+                    <xct:StateView StateKey="Error" RepeatCount="3">
+                        <xct:StateView.Template>
+                            <DataTemplate>
+                                <forms:AnimationView                                    
+                                    Animation="resource://Assets.list-loader.json?assembly=WeBad.Apps"
+                                    AnimationSource="EmbeddedResource"                                    
+                                    AutoPlay="True"
+                                    RepeatMode="Restart"
+                                    HeightRequest="80"/>
+                            </DataTemplate>
+                        </xct:StateView.Template>
+                    </xct:StateView>
+
+                    <xct:StateView StateKey="Success">
+                        <ListView
+                            ItemsSource="{Binding FiveDaysItems}"
+                            BackgroundColor="#FFF"                            
+                            SeparatorVisibility="None"
+                            SelectionMode="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <forecast:DayView
+                                Icon="{TemplateBinding Icon}"
+                                DayName="{TemplateBinding NameOfDay}"
+                                Temperature="{TemplateBinding Temperature}"
+                                    />
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </xct:StateView>
+
+                </xct:StateLayout.StateViews>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WeBad.Apps.Views.Hangman.TermView">
+  <ContentView.Content>
+        <FlexLayout      
+            x:Name="TermContainer"
+            VerticalOptions="Center"
+            Direction="Row"
+            Wrap="Wrap"
+            AlignItems="Start" 
+            AlignContent="Center"
+            JustifyContent="Center">
+        </FlexLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="WeBad.Apps.Views.HomePage">
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#79BEC2" Offset="0.0"/>
+            <GradientStop Color="#646D97" Offset="1.0"/>
+        </LinearGradientBrush>
+    </ContentPage.Background>
+    <ContentPage.Content>
+        <StackLayout
+            Spacing="20"
+            VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand">
+            <Label
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                TextColor="#FFF"
+                FontSize="30"                
+                Text="Aplikacije"/>
+            <Button 
+                Text="Igra Vešalice"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="FillAndExpand"
+                Background="#FFF"
+                Clicked="HangmanButtonClicked"/>
+            <Button 
+                Text="Vremenska prognoza"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="FillAndExpand"
+                Background="#FFF"                
+                Clicked="ForecastButtonClicked"/>
+            <Label
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                FontSize="Medium"                
+                Text="by Milos"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
